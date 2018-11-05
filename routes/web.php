@@ -83,6 +83,8 @@ Route::group(['middleware' => 'AdminMiddleware'], function () {
 	Route::get('/sales','SalesManagement@index');
 
 	Route::post('/salesInsert','SalesManagement@salesInsert');
+	
+	Route::post('/SalesOrder','SalesManagement@SalesOrder');
 
 	Route::get('/sales_cash_return','SalesManagement@salescashReturn');
 

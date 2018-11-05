@@ -9,18 +9,430 @@
                     <!-- /.col-lg-12 -->
                 </div>
 
-                <?php
-                    $id = Session::get('userid');
-                    $UserManagementReport = DB::table('user_permissions')->where('userid', '=', $id)->where('permissionid', '=', '11')->get();
-                    $SalesManagementReport = DB::table('user_permissions')->where('userid', '=', $id)->where('permissionid', '=', '12')->get();
-                    $PurchaseManagementReport = DB::table('user_permissions')->where('userid', '=', $id)->where('permissionid', '=', '13')->get();
-                    $InventoryManagementReport = DB::table('user_permissions')->where('userid', '=', $id)->where('permissionid', '=', '14')->get();
-                ?>
                 <!-- /.row -->
+
                 <div class="row">
-                    @if(count($PurchaseManagementReport) == 1)
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Category</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('category') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-yellow">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Subcategory</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('subcategory') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Item</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('item') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Unit</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('unit') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-green">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Customer</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('client') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="panel panel-red">
+                        <div class="panel-heading">
+                            <div class="row">
+                                <div class="col-xs-3">
+                                    <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                </div>
+                                <div class="col-xs-9 text-right">
+                                    <div>Supplier</div>
+                                </div>
+                            </div>
+                        </div>
+                        <a href="{{ url('supplier') }}">
+                            <div class="panel-footer">
+                                <span class="pull-left">View Details</span>
+                                <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Product</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('product') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br>Requisition</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('purchase') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br> Order</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('purchaseOrder') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br> Cash <br> Return</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('purchase_cash_return') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>                    
+
+                 <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br> Return</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('purchase_cash_return') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>                    
+
+                 <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br> Repair</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('purchase_repair') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>     
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-green">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Purchase <br> Damage</div>
+                                    </div>
+                                </div>
+                            </div>
+                    
+                            <a href="{{ url('purchase_damage') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>     
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-yellow">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Sales <br> Requisition</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('SalesOrder') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Sales <br> Order</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('sales') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Sales <br> Cash <br> Return </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('sales_cash_return') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Sales <br> Repair </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('sales_repair') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
+                            <div class="panel-heading">
+                                <div class="row">
+                                    <div class="col-xs-3">
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
+                                    </div>
+                                    <div class="col-xs-9 text-right">
+                                        <div>Sales <br> Damage </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="{{ url('sales_damage') }}">
+                                <div class="panel-footer">
+                                    <span class="pull-left">View Details</span>
+                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+
+                                    <div class="clearfix"></div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-3 col-md-6">
+                        <div class="panel panel-red">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
@@ -41,8 +453,8 @@
                             </a>
                         </div>
                     </div>
-                    @endif
-                    @if(count($SalesManagementReport) == 1)
+
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-green">
                             <div class="panel-heading">
@@ -65,8 +477,7 @@
                             </a>
                         </div>
                     </div>
-                    @endif
-                    @if(count($UserManagementReport) == 1)
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-yellow">
                             <div class="panel-heading">
@@ -89,14 +500,13 @@
                             </a>
                         </div>
                     </div>
-                    @endif
-                    @if(count($InventoryManagementReport) == 1)
+
                     <div class="col-lg-3 col-md-6">
                         <div class="panel panel-red">
                             <div class="panel-heading">
                                 <div class="row">
                                     <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
+                                        <i class="fa fa-arrow-circle-right fa-5x"></i>
                                     </div>
                                     <div class="col-xs-9 text-right">
                                         <div>Total <br> Inventory</div>
@@ -113,121 +523,7 @@
                             </a>
                         </div>
                     </div>
-                    @endif
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div>Purchase <br> Order</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{ url('purchaseOrder') }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
 
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div>Product</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{ url('product') }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                     <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div>Sales</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{ url('sales') }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div>Purchase <br>Requisition</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{ url('purchase') }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <div class="col-lg-3 col-md-6">
-                        <div class="panel panel-red">
-                            <div class="panel-heading">
-                                <div class="row">
-                                    <div class="col-xs-3">
-                                        <i class="fa fa-bank fa-5x"></i>
-                                    </div>
-                                    <div class="col-xs-9 text-right">
-                                        <div>Product</div>
-                                    </div>
-                                </div>
-                            </div>
-                            <a href="{{ url('product') }}">
-                                <div class="panel-footer">
-                                    <span class="pull-left">View Details</span>
-                                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-
-                                    <div class="clearfix"></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
                     
 
                 </div>

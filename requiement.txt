@@ -10,13 +10,13 @@ Work List :
 
 4. purchase requisition & po create
 
+5. 1st step sale order (draft)
 
+6. 2nd step sales delivery (hit in stock, only approve)
 
-Pending :
+7. 3rd step generate invoice report
 
-1. design button
-2. set price auto
-3. 
+8. collection due
 
 
 
@@ -24,3 +24,8 @@ Next Step
 
 1. final rquirement
 2. test start requirement
+3. furnishing ignore
+	i. minus sell
+       ii. category button
+      iii. set price , vat price auto
+4. new requiement time
