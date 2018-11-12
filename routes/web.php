@@ -11,95 +11,139 @@
 |
 */
 
+Route::get('/','UserController@index');
 
-Route::post('/loginCheck','LoginManagement@loginCheck');
+Route::post('/LoginCheck','UserController@LoginCheck');
 
-Route::get('/logout','LoginManagement@Logout');
-
-Route::get('/','LoginManagement@index');
+Route::get('/logout','UserController@Logout')->name('logout');
 
 Route::group(['middleware' => 'AdminMiddleware'], function () {
 
-	Route::get('/dashboard','HomeManagement@index');
-
-	Route::get('/category','CategoryManagement@index');
-
-	Route::get('/subcategory','subcategoryController@index');
-
-	Route::get('/item','ItemController@index');
-
-	Route::post('/ItemInsert','ItemController@ItemInsert');
-
-	Route::post('/SubcategoryInsert','subcategoryController@SubcategoryInsert');
-
-	Route::post('/CategoryInsert','CategoryManagement@CategoryInsert');
-
-	Route::get('/unit','UnitManagement@index');
-
-	Route::post('/unitInsert','UnitManagement@unitInsert');
-
-	Route::get('/client','ClientManagement@index');
-
-	Route::post('/ClientInsert','ClientManagement@ClientInsert');
-
-	Route::get('/supplier','SupplierManagement@index');
-
-	Route::post('/supplierInsert','SupplierManagement@supplierInsert');
-
-	Route::get('/product','ProductManagement@index');
-
-	Route::post('/addProduct','ProductManagement@addProduct');
-
-	Route::get('/purchase','PurchaseManagement@index');
-
-	Route::get('/purchaseOrder','PurchaseManagement@purchaseOrder');
-
-	Route::post('/poInsert','PurchaseManagement@poInsert');
-
-	Route::get('/PurchaseManagementReport','PurchaseManagement@PurchaseManagementReport');
-
-	Route::get('/purchaseOrderApprove/{id}','PurchaseManagement@purchaseOrderApprove');
-
-	Route::get('/salesManagementReport','SalesManagement@salesManagementReport');
-
-	Route::get('/inventoryManagementReport','SalesManagement@inventoryManagementReport');
-
-	Route::post('/requisitionInsert','PurchaseManagement@requisitionInsert');
-
-	Route::get('/purchaseInsert','PurchaseManagement@purchaseInsert');
-
-	Route::get('/purchase_cash_return','PurchaseManagement@cashReturn');
-
-	Route::post('/purchaseCashInsert','PurchaseManagement@purchaseCashInsert');
-
-	Route::get('/purchase_repair','PurchaseManagement@purchaseRepair');
-
-	Route::post('/purchaseRepairInsert','PurchaseManagement@purchaseRepairInsert');
-
-	Route::get('/purchase_damage','PurchaseManagement@purchasedamage');
-
-	Route::post('/purchaseDamageInsert','PurchaseManagement@purchaseDamageInsert');
-
-	Route::get('/sales','SalesManagement@index');
-
-	Route::post('/salesInsert','SalesManagement@salesInsert');
+    Route::get('/dashboard','HomeManagement@index')->name('dashboard');	
 	
-	Route::post('/SalesOrder','SalesManagement@SalesOrder');
-
-	Route::get('/sales_cash_return','SalesManagement@salescashReturn');
-
-	Route::post('/salesCashInsert','SalesManagement@salesCashInsert');
 	
-	Route::get('/sales_repair','SalesManagement@salesRepair');
+	 /* Department View, Insert, Update, Delete */
 
-	Route::post('saleRepairInsert','SalesManagement@saleRepairInsert');
+    Route::get('/department/{data?}','DepartmentController@index')->name('department');
 
-	Route::post('saleDamageInsert','SalesManagement@saleDamageInsert');
+    Route::post('/departmentInsert','DepartmentController@store')->name('departmentStore');
 
-	Route::get('/sales_damage','SalesManagement@salesdamage');
+    Route::post('/departmentUpdate/{data}','DepartmentController@update');
 
-	Route::get('/UserManagementController','LoginManagement@UserManagementController');
+    Route::get('/departmentDelete','DepartmentController@delete');
+	
 
-	Route::post('/registerMethod','LoginManagement@registerMethod');
+    /* Category View, Insert, Update, Delete */
 
+    Route::get('/category/{data?}','CategoryController@index')->name('category');
+
+    Route::post('/CategoryInsert','CategoryController@store');
+
+    Route::post('/CategoryUpdate/{data}','CategoryController@update');
+
+    Route::get('/CategoryDelete','CategoryController@delete');
+
+    /* Sub category View, Insert, Update, Delete */
+
+    Route::get('/subcategory/{data?}','subcategoryController@index')->name('subcategory');
+
+    Route::post('/SubcategoryInsert','subcategoryController@store');
+
+    Route::post('/SubcategoryUpdate/{data}','subcategoryController@update');
+
+    Route::get('/SubcategoryDelete','subcategoryController@delete');
+
+    /* Item View, Insert, Update, Delete */
+
+    Route::get('/item/{data?}','ItemController@index')->name('item');
+
+    Route::post('/ItemInsert','ItemController@ItemInsert');
+
+    Route::post('/ItemUpdate/{data}','ItemController@Update');
+
+    Route::get('/ItemDelete','ItemController@Delete');
+
+    /* Unit View, Insert, Update, Delete */
+
+    Route::get('/unit/{data?}','UnitController@index')->name('unit');
+
+    Route::post('/unitInsert','UnitController@store');
+
+    /* Customer View, Insert, Update, Delete */
+
+    Route::get('/customer','CustomerController@index')->name('customer');
+
+    Route::post('/ClientInsert','CustomerController@store');
+
+    /* Supplier View, Insert, Update, Delete */
+
+    Route::get('/supplier','SupplierController@index')->name('supplier');
+
+    Route::post('/supplierInsert','SupplierController@store');
+
+    /* Product View, Insert, Update, Delete */
+
+    Route::get('/product','ProductController@index')->name('product');
+
+    Route::post('/addProduct','ProductController@store');
+
+    /* Purchase View, Insert, Update, Delete */
+
+    Route::get('/purchase','PurchaseController@index')->name('purchase');
+
+    Route::get('/purchaseOrder','PurchaseController@purchaseOrder')->name('purchaseOrder');
+
+    Route::post('/poInsert','PurchaseController@poInsert');
+
+    Route::get('/PurchaseManagementReport','PurchaseController@PurchaseManagementReport')->name('purchaseManagementReport');
+
+    Route::get('/purchaseOrderApprove/{id}','PurchaseController@purchaseOrderApprove');
+
+    Route::post('/requisitionInsert','PurchaseController@requisitionInsert');
+
+    Route::get('/purchaseInsert','PurchaseController@purchaseInsert');
+
+    Route::get('/purchase_cash_return','PurchaseController@cashReturn')->name('purchaseCashReturn');
+
+    Route::post('/purchaseCashInsert','PurchaseController@purchaseCashInsert');
+
+    Route::get('/purchase_repair','PurchaseController@purchaseRepair')->name('purchaseRepair');
+
+    Route::post('/purchaseRepairInsert','PurchaseController@purchaseRepairInsert');
+
+    Route::get('/purchase_damage','PurchaseController@purchasedamage')->name('purchaseDamage');
+
+    Route::post('/purchaseDamageInsert','PurchaseController@purchaseDamageInsert');
+
+    Route::get('/salesManagementReport','SaleController@salesManagementReport')->name('salesManagementReport');
+
+    Route::get('/inventoryManagementReport','SaleController@inventoryManagementReport')->name('inventoryManagementReport');
+
+    Route::get('/sales','SaleController@index')->name('sales');
+
+    Route::post('/salesInsert','SaleController@salesInsert');
+
+    Route::post('/SalesOrder','SaleController@SalesOrder');
+
+    Route::get('/sales_cash_return','SaleController@salescashReturn')->name('salesCashReturn');
+
+    Route::post('/salesCashInsert','SaleController@salesCashInsert');
+
+    Route::get('/sales_repair','SaleController@salesRepair')->name('salesRepair');
+
+    Route::post('saleRepairInsert','SaleController@saleRepairInsert');
+
+    Route::post('saleDamageInsert','SaleController@saleDamageInsert');
+
+    Route::get('/sales_damage','SaleController@salesdamage')->name('salesDamage');
+
+    Route::get('/UserManagementController','UserController@UserManagementController')->name('userManagementController');
+
+    Route::post('/registerMethod','UserController@registerMethod');
+
+    Route::post('/getRequest','userPermission@index');
+
+    Route::post('/permissionDelete','userPermission@delete');
+
+    Route::post('/permissionStore','userPermission@store');
 });

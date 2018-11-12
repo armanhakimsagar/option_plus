@@ -1,7 +1,6 @@
-@extends('master.layout')
-@section('middle')
+@extends('layout.app')
+@section('content')
 
-            <div id="page-wrapper"><br><br><br>
                 <div class="row">
                     <div class="col-lg-8">
                     @if(session()->has('purchase_cash_return'))
@@ -9,11 +8,11 @@
                         Inserted Successfully
                     </div>
                     @endif
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="card text-dark">
+                            <div class="card-header">
                                 Purchase Cash Return
                             </div>
-                            <div class="panel-body">
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <form role="form" action="purchaseCashInsert" method="post">
@@ -64,9 +63,5 @@
                 </div>
                 
                 <!-- /.row -->
-            </div>
-            <!-- /#page-wrapper -->
-
-        </div>
 
 @endsection

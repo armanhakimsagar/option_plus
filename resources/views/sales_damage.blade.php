@@ -1,7 +1,7 @@
-@extends('master.layout')
-@section('middle')
+@extends('layout.app')
+@section('content')
 
-            <div id="page-wrapper"><br><br><br>
+
                 <div class="row">
                     <div class="col-lg-8">
                     @if(session()->has('sale_damage'))
@@ -9,11 +9,11 @@
                         Inserted Successfully
                     </div>
                     @endif
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="card text-dark">
+                            <div class="card-header">
                                 Sales Damage
                             </div>
-                            <div class="panel-body">
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
                                         <form role="form" action="{{ url('saleDamageInsert') }}" method="post">
@@ -62,11 +62,5 @@
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                
-                <!-- /.row -->
-            </div>
-            <!-- /#page-wrapper -->
-
-        </div>
 
 @endsection

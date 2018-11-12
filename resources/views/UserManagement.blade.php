@@ -1,96 +1,74 @@
-@extends('master.layout')
-@section('middle')
-<style>
-/* The container */
-.container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 16px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
+@extends('layout.app')
+@section('content')
 
-/* Hide the browser's default checkbox */
-.container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-    height: 0;
-    width: 0;
-}
+    <div class="container-fluid" id="UserPermission">
+        <div class="row">
+            <div class="col-3 mt-2">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text"><i class="fas fa-search"></i></span>
+                    </div>
+                    <input class="form-control" id="myInput" type="text" placeholder="Search user">
+                </div>
+                <ul class="list-group" id="myList">
+                    @foreach($user as $users)
+                        <li id="design{{$users->id}}" class="list-group-item"  onclick="UserPermission({{$users->id}})"><img src="{{asset('img/img_avatar.png')}}"
+                                                                                    class="CImg rounded-circle">
+                            <span class="user{{$users->id}}">{{$users->username}}</span>
+                        </li>
+                    @endforeach
+                </ul>
+            </div>
+            <div class="col-9" style="background-color: #ffffffd9;height: 91.5vh;padding-right: 0;">
+                <div class="container text-dark table-wrapper-scroll-y" id="userPermissionShow" style="display: none;">
+                    <div class="mt-3 text-center">
+                        <img src="{{asset('img/img_avatar.png')}}" class="w-25 rounded-circle mx-auto d-block"><br>
+                        <h2 class="addUserName">Rofequl Islam Nayem</h2>
+                        <input type="hidden" id="addUserNameValue" value="">
+                    </div>
+                    <br>
+                    <table class="table table-striped">
+                        <thead>
+                        <tr>
+                            <th></th>
+                            <th>Grant Access?</th>
+                        </tr>
+                        </thead>
+                        <tbody class="addPermissionTable">
 
-/* Create a custom checkbox */
-.checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
 
-/* On mouse-over, add a grey background color */
-.container:hover input ~ .checkmark {
-    background-color: #ccc;
-}
 
-/* When the checkbox is checked, add a blue background */
-.container input:checked ~ .checkmark {
-    background-color: #2196F3;
-}
 
-/* Create the checkmark/indicator (hidden when not checked) */
-.checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-}
 
-/* Show the checkmark when checked */
-.container input:checked ~ .checkmark:after {
-    display: block;
-}
 
-/* Style the checkmark/indicator */
-.container .checkmark:after {
-    left: 9px;
-    top: 5px;
-    width: 5px;
-    height: 10px;
-    border: solid white;
-    border-width: 0 3px 3px 0;
-    -webkit-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
-}
-</style>
-<div id="page-wrapper"><br><br><br>
-    <div class="row">
+
+    <!---<div class="row">
         <div class="col-lg-8">
         @if(session()->has('UserManagementController'))
         <div class="alert alert-success">
             Created Successfully
         </div>
         @endif
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    User Management
+            <div class="card text-dark">
+                <div class="card-header">
+                    User Management:
                 </div>
-                <div class="panel-body">
+                <div class="card-body">
                     <form action="{{ url('registerMethod') }}" method="post">
                         {{ csrf_field() }}
-                        Username:
-                        <input type="text" class="form-control" name="username"> <br>
-                        Password:
-                        <input type="password" class="form-control" name="passwords"> <br>
+            Username:
+            <input type="text" class="form-control" name="username"> <br>
+            Password:
+            <input type="password" class="form-control" name="passwords"> <br>
 
-                        <label class="container">Category
-                          <input type="checkbox" checked="checked" name="checkbox[]" value="1">
+            <label class="container">Category
+              <input type="checkbox" checked="checked" name="checkbox[]" value="1">
                           <span class="checkmark"></span>
                         </label>
                         <label class="container">Custemoer
@@ -160,19 +138,14 @@
                         </label>
                         <input type="submit" name="submit" value="Create User" class="btn btn-info">
                     </form>
-                    <!-- /.row (nested) -->
-                </div>
-                <!-- /.panel-body -->
-            </div>
-            <!-- /.panel -->
-        </div>
-        <!-- /.col-lg-12 -->
-    </div>
-    
-    <!-- /.row -->
-</div>
-<!-- /#page-wrapper -->
 
-</div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>--->
+
 
 @endsection

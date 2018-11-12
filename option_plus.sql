@@ -1,15 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.3
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Oct 28, 2018 at 05:48 PM
--- Server version: 10.1.36-MariaDB
--- PHP Version: 7.2.11
+-- Host: 127.0.0.1
+-- Generation Time: Nov 09, 2018 at 10:57 AM
+-- Server version: 10.1.19-MariaDB
+-- PHP Version: 7.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
-START TRANSACTION;
 SET time_zone = "+00:00";
 
 
@@ -40,8 +38,8 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `category_name`, `created_at`, `updated_at`) VALUES
-(15, 'dress', '2018-10-26 08:35:04', '2018-10-26 08:35:04'),
-(16, 'Air Tickets', '2018-10-26 22:29:29', '2018-10-26 22:29:29');
+(18, 'Computer', '2018-11-06 20:39:46', '2018-11-06 20:39:46'),
+(19, 'Mobiles', '2018-11-09 04:35:12', '2018-11-08 22:35:12');
 
 -- --------------------------------------------------------
 
@@ -65,7 +63,8 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `customer_name`, `business`, `phone`, `address`, `created_at`, `updated_at`) VALUES
 (4, 'Cats Eye', 'Cats Eye', '1627440390', 'Bonani', '2018-10-26 08:35:32', '2018-10-26 08:35:32'),
-(5, 'Emirates', 'Air Travels', '1627440390', 'Bonani', '2018-10-26 22:29:57', '2018-10-26 22:29:57');
+(5, 'Emirates', 'Air Travels', '1627440390', 'Bonani', '2018-10-26 22:29:57', '2018-10-26 22:29:57'),
+(6, 'Ashraf', 'None', '123456', 'none', '2018-11-08 23:47:41', '2018-11-08 23:47:41');
 
 -- --------------------------------------------------------
 
@@ -87,8 +86,9 @@ CREATE TABLE `items` (
 --
 
 INSERT INTO `items` (`id`, `category_id`, `subcategory_id`, `item`, `created_at`, `updated_at`) VALUES
-(1, 15, '2', 'fdsfds', '2018-10-28 08:33:50', '2018-10-28 08:33:50'),
-(2, 16, '1', 'dfgdsg', '2018-10-28 08:34:26', '2018-10-28 08:34:26');
+(3, 18, '7', 'jinjar', '2018-11-09 09:06:52', '2018-11-09 03:06:52'),
+(4, 18, '7', 'Easy ok', '2018-11-09 09:13:13', '2018-11-09 03:13:13'),
+(5, 19, '7', 'ok', '2018-11-09 09:07:11', '2018-11-09 03:07:11');
 
 -- --------------------------------------------------------
 
@@ -154,7 +154,8 @@ INSERT INTO `products` (`id`, `category_id`, `subcategory_id`, `item_id`, `name`
 (10, 16, NULL, NULL, 'Business class', 'ticket', '4', '2018-10-26 22:30:30', '2018-10-26 22:30:30'),
 (11, 15, 1, 1, 'chgh', 'gfhgfh', '4', '2018-10-28 09:17:16', '2018-10-28 09:17:16'),
 (12, 16, 1, 1, 'fdgdf', 'tfgh', '4', '2018-10-28 09:43:44', '2018-10-28 09:43:44'),
-(13, 15, 1, 1, 'gfdgh', 'hfgh', '4', '2018-10-28 09:44:32', '2018-10-28 09:44:32');
+(13, 15, 1, 1, 'gfdgh', 'hfgh', '4', '2018-10-28 09:44:32', '2018-10-28 09:44:32'),
+(14, 17, 10, 5, 'A el C u', 'nill', '4', '2018-11-08 23:58:09', '2018-11-08 23:58:09');
 
 -- --------------------------------------------------------
 
@@ -189,7 +190,8 @@ CREATE TABLE `purchases` (
 
 INSERT INTO `purchases` (`id`, `product_id`, `qty`, `invoice`, `requisition_qty`, `requisition_status`, `requisition_no`, `price`, `description`, `vat`, `tax`, `ait`, `discount`, `net_payable`, `supplier_id`, `due`, `created_at`, `updated_at`) VALUES
 (26, 9, 333, NULL, 444, 1, 4683, 33, 'hgfhfg', 0, 0, 0, 0, 0, 5, 0, '2018-10-28 16:19:06', '2018-10-28 10:19:06'),
-(28, 8, 44, 'g54t5', 44, 1, 22110, 44, 'fdgf', 445, 445, 33, 55, 44, 5, 33, '2018-10-28 16:27:07', '2018-10-28 10:27:07');
+(28, 8, 44, 'g54t5', 44, 1, 22110, 44, 'fdgf', 445, 445, 33, 55, 44, 5, 33, '2018-10-28 16:27:07', '2018-10-28 10:27:07'),
+(29, 8, NULL, 'tt', 5, 0, 26788, 456, 'nill', 45, 43, 43, 23, 535, 5, 56, '2018-11-09 00:08:46', '2018-11-09 00:08:46');
 
 -- --------------------------------------------------------
 
@@ -372,10 +374,8 @@ CREATE TABLE `subcategories` (
 --
 
 INSERT INTO `subcategories` (`id`, `category_id`, `subcategory`, `created_at`, `updated_at`) VALUES
-(1, 15, 'ff', '2018-10-28 07:26:40', '2018-10-28 07:26:40'),
-(2, 15, 'fgfdg', '2018-10-28 07:27:39', '2018-10-28 07:27:39'),
-(3, 15, 'ggg', '2018-10-28 07:28:23', '2018-10-28 07:28:23'),
-(4, 16, 'fgfd', '2018-10-28 08:25:23', '2018-10-28 08:25:23');
+(7, 18, 'ASUS', '2018-11-06 20:40:07', '2018-11-06 20:40:07'),
+(11, 19, 'Nokia Phone', '2018-11-09 04:48:25', '2018-11-08 22:48:25');
 
 -- --------------------------------------------------------
 
@@ -398,7 +398,8 @@ CREATE TABLE `suppliers` (
 --
 
 INSERT INTO `suppliers` (`id`, `supplier_name`, `business`, `phone`, `address`, `created_at`, `updated_at`) VALUES
-(5, 'Abc Garments', 'Abc Garments', '1627440390', 'Bonani', '2018-10-26 08:36:17', '2018-10-26 08:36:17');
+(5, 'Abc Garments', 'Abc Garments', '1627440390', 'Bonani', '2018-10-26 08:36:17', '2018-10-26 08:36:17'),
+(6, 'kamal', 'None', '6547856345', 'None', '2018-11-08 23:54:08', '2018-11-08 23:54:08');
 
 -- --------------------------------------------------------
 
@@ -418,7 +419,8 @@ CREATE TABLE `units` (
 --
 
 INSERT INTO `units` (`id`, `unit_name`, `created_at`, `updated_at`) VALUES
-(4, 'pc', '2018-10-26 08:36:41', '2018-10-26 08:36:41');
+(4, 'pc', '2018-10-26 08:36:41', '2018-10-26 08:36:41'),
+(5, 'none', '2018-11-08 23:48:08', '2018-11-08 23:48:08');
 
 -- --------------------------------------------------------
 
@@ -616,111 +618,92 @@ ALTER TABLE `user_permissions`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `customers`
 --
 ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `items`
 --
 ALTER TABLE `items`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `permissions`
 --
 ALTER TABLE `permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
 --
 -- AUTO_INCREMENT for table `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 --
 -- AUTO_INCREMENT for table `purchases`
 --
 ALTER TABLE `purchases`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `purchase_cash_returns`
 --
 ALTER TABLE `purchase_cash_returns`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
-
 --
 -- AUTO_INCREMENT for table `purchase_damages`
 --
 ALTER TABLE `purchase_damages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
 --
 -- AUTO_INCREMENT for table `purchase_repairs`
 --
 ALTER TABLE `purchase_repairs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `sales`
 --
 ALTER TABLE `sales`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
-
 --
 -- AUTO_INCREMENT for table `sale_cash_returns`
 --
 ALTER TABLE `sale_cash_returns`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
 --
 -- AUTO_INCREMENT for table `sale_damages`
 --
 ALTER TABLE `sale_damages`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
 --
 -- AUTO_INCREMENT for table `sale_repairs`
 --
 ALTER TABLE `sale_repairs`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
-
 --
 -- AUTO_INCREMENT for table `subcategories`
 --
 ALTER TABLE `subcategories`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `suppliers`
 --
 ALTER TABLE `suppliers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `units`
 --
 ALTER TABLE `units`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
 --
 -- AUTO_INCREMENT for table `user_permissions`
 --
 ALTER TABLE `user_permissions`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=88;
-COMMIT;
-
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -1,7 +1,6 @@
-@extends('master.layout')
-@section('middle')
+@extends('layout.app')
+@section('content')
 
-            <div id="page-wrapper"><br><br><br>
                 <div class="row">
                     <div class="col-lg-12">
                     @if(session()->has('purchase'))
@@ -9,11 +8,11 @@
                         Inserted Successfully
                     </div>
                     @endif
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
+                        <div class="card text-dark">
+                            <div class="card-header">
                                 Purchase Management Report
                             </div>
-                            <div class="panel-body">
+                            <div class="card-body">
                                 <div class="row">
                                     <div class="col-lg-12">
                                     <table class="table table-bordered">
@@ -73,9 +72,5 @@
                 </div>
                 
                 <!-- /.row -->
-            </div>
-            <!-- /#page-wrapper -->
-
-        </div>
 
 @endsection
